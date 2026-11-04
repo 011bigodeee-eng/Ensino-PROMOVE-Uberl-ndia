@@ -55,3 +55,9 @@ Com o servidor em execução e Playwright instalado, execute `node scripts/smoke
 O commit inicial continha apenas o README e não incluía o aplicativo. A implantação precisa usar o commit com `app/`, `package.json`, `package-lock.json` e `vercel.json`. O arquivo `vercel.json` declara Next.js e os comandos de instalação/build. Na Vercel, mantenha Root Directory na raiz do repositório e Output Directory no padrão do framework (sem override). A branch de produção é `main`. Um redeploy do commit inicial não publica o site.
 
 Na Vercel, a origem de produção disponibilizada em `VERCEL_PROJECT_PRODUCTION_URL` é usada automaticamente para metadata e sitemap quando `NEXT_PUBLIC_SITE_URL` não está definido. Para um domínio próprio, configure explicitamente `NEXT_PUBLIC_SITE_URL`.
+
+## Reformulação visual
+
+Hero em duas colunas (45%/55%), treinamentos editoriais e CTA com fotografia independente do texto. As seções alternam fundos claros e azul petróleo. Os três destaques usam novas ilustrações geradas por IA em 1536 × 1024, identificadas na interface. Consulte `docs/image-audit.md` para dimensões, limites das referências e otimização.
+
+Com o servidor em execução, `npm run test:visual` verifica 70 combinações de rotas/larguras, a tipografia do Hero, os CTAs na primeira dobra de desktop, a ausência de sobreposição do header e a decodificação das imagens. Gera capturas de 1440 px e 390 px em `/tmp`. Use `CHROMIUM_PATH=/usr/bin/chromium` quando necessário. `npm run test:smoke` cobre a preservação das funcionalidades.
