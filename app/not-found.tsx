@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <section className="page-hero not-found"><p className="eyebrow">404 / CAMINHO NÃO ENCONTRADO</p><h1>Vamos encontrar<br/>uma nova direção.</h1><p>Esta página não está disponível. Explore os cursos ou volte ao início.</p><Link className="button yellow" href="/cursos">Conhecer cursos ↗</Link><Link className="text-link" href="/">Voltar ao início →</Link></section>}

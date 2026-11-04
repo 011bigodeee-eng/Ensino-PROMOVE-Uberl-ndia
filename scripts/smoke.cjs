@@ -1,0 +1,24 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- Node.js CommonJS browser verification script. */
+const { chromium } = require('playwright');
+const assert = require('node:assert/strict');
+(async()=>{
+ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH || undefined,headless:true,args:['--no-sandbox']});
+ const context=await browser.newContext({reducedMotion:'reduce'});
+ const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ for(const width of [320,360,375,390,430,768,1440]){
+ await page.setViewportSize({width,height:950});await page.goto('http://localhost:3000');await page.waitForLoadState('networkidle');
+ assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Overflow ${width}`);
+ if(width<900){await page.getByRole('button',{name:'Abrir menu'}).click();await page.locator('#navigation').getByRole('link',{name:'Cursos',exact:true}).click();await page.waitForURL('**/cursos');assert.equal(await page.getByRole('button',{name:'Abrir menu'}).getAttribute('aria-expanded'),'false');}
+ }
+ await page.setViewportSize({width:1440,height:1000});await page.goto('http://localhost:3000');await page.evaluate(async()=>{for(let y=0;y<document.body.scrollHeight;y+=700){window.scrollTo(0,y);await new Promise(r=>setTimeout(r,100))}window.scrollTo(0,0)});await page.waitForTimeout(400);assert(await page.locator('img').evaluateAll(imgs=>imgs.every(i=>i.complete&&i.naturalWidth>0)),'Broken home image');await page.screenshot({path:'/tmp/promove-desktop.png',fullPage:true});
+ await page.goto('http://localhost:3000/cursos');await page.getByRole('button',{name:'Industrial',exact:true}).click();assert.equal(await page.locator('.course-card').count(),2);
+ await page.getByRole('button',{name:'Todos',exact:true}).click();await page.getByRole('textbox',{name:'Pesquisar cursos'}).fill('Munck');assert.equal(await page.locator('.course-card').count(),1);await page.getByRole('link',{name:'Ver detalhes'}).click();await page.waitForURL('**/operador-de-caminhao-munck');assert.match(await page.locator('h1').innerText(),/Munck/);
+ const href=await page.getByRole('link',{name:'Quero saber mais'}).getAttribute('href');assert(decodeURIComponent(href).includes('Caminhão Munck'));
+ await page.goto('http://localhost:3000/galeria');await page.locator('.gallery-photo').first().click();assert(await page.locator('dialog').evaluate(el=>el.open));await page.getByRole('button',{name:'Próxima foto'}).click();await page.keyboard.press('Escape');assert(!(await page.locator('dialog').evaluate(el=>el.open)));await page.getByRole('button',{name:'Eventos',exact:true}).click();assert.equal(await page.locator('.gallery-photo').count(),0);
+ await page.goto('http://localhost:3000/contato');await page.getByLabel('Seu nome').fill('Pessoa Teste');await page.getByLabel('WhatsApp com DDD').fill('34999999999');await page.getByLabel('Curso de interesse').selectOption({label:'Operador de Empilhadeira'});await page.getByLabel('Melhor período para contato').selectOption('Tarde');await page.locator('[name=consent]').check();await page.evaluate(()=>{window.open=(url)=>{window.__opened=url;return null}});await page.getByRole('button',{name:'Continuar no WhatsApp'}).click();assert.match(await page.locator('[role=status]').innerText(),/Mensagem preparada/);assert.match(decodeURIComponent(await page.evaluate(()=>window.__opened)),/Pessoa Teste/);
+ for(const route of ['/sobre','/treinamentos','/politica-de-privacidade',...['operador-de-empilhadeira','operador-de-pa-carregadeira','operador-de-escavadeira-hidraulica','maquinas-pesadas-e-agricolas','operador-de-plataforma-elevatoria'].map(s=>'/cursos/'+s)]){const r=await page.goto('http://localhost:3000'+route);assert.equal(r.status(),200,route);assert.equal(await page.locator('h1').count(),1)}
+ const r=await page.goto('http://localhost:3000/inexistente');assert.equal(r.status(),404);assert.equal(errors.length,0,errors.join('\n'));
+ await page.setViewportSize({width:390,height:844});await page.goto('http://localhost:3000');await page.screenshot({path:'/tmp/promove-mobile.png',fullPage:true});
+ await context.close();const introContext=await browser.newContext();const intro=await introContext.newPage();await intro.goto('http://localhost:3000');await intro.waitForTimeout(2600);assert.equal(await intro.locator('.intro').count(),0);await intro.reload();await intro.waitForTimeout(200);assert.equal(await intro.locator('.intro').count(),0);
+ await browser.close();console.log('PASS: 7 larguras, menu, catálogo, busca, detalhes, WhatsApp, lightbox, formulário, rotas, 404 e introdução.');
+})().catch(e=>{console.error(e);process.exit(1)});
