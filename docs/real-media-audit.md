@@ -42,4 +42,4 @@ A hero ilustrativa foi mantida: as imagens recebidas são artes quadradas/vertic
 
 Vídeos revisados visualmente em diferentes trechos; áudio preservado, sem transcrição ou atribuição de falas. Não foram criados depoimentos. As legendas identificam apenas o que está visível nas artes, sem inferir nomes de pessoas ou instrutores. Datas e detalhes nas artes são registros históricos, não ofertas atuais.
 
-Logo oficial recebido posteriormente em `IMG_8255.JPG.zip`: aplicado pelo componente `Brand` no cabeçalho, rodapé e introdução. JPEG original preservado em `public/images/brand/promove-oficial.jpeg`, sem recorte, recoloração ou distorção.
+Logo oficial recebido posteriormente em `IMG_8255.JPG.zip`: aplicado pelo componente `Brand` no cabeçalho, rodapé e introdução. JPEG original preservado em `public/images/brand/promove-oficial.jpeg`. A versão aplicada ao site é `public/images/brand/promove-transparente.png`, com remoção do fundo branco e transparência também nos espaços internos.
