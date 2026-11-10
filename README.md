@@ -67,4 +67,4 @@ Hero em duas colunas (45%/55%), treinamentos editoriais e CTA com fotografia ind
 
 Com o servidor em execução, `npm run test:visual` verifica 70 combinações de rotas/larguras, a tipografia do Hero, os CTAs na primeira dobra de desktop, a ausência de sobreposição do header e a decodificação das imagens. Gera capturas de 1440 px e 390 px em `/tmp`. Use `CHROMIUM_PATH=/usr/bin/chromium` quando necessário. `npm run test:smoke` cobre a preservação das funcionalidades.
 
-O componente compartilhado `Brand` contém o ponto de configuração do futuro logotipo oficial, usado no cabeçalho, rodapé e introdução. A identidade atual permanece até o envio do arquivo azul oficial.
+O componente compartilhado `Brand` usa o logotipo oficial recebido em `IMG_8255.JPG.zip`, preservado em `public/images/brand/promove-oficial.jpeg`. Cabeçalho, rodapé e introdução exibem a mesma arte completa, sem distorção e com o fundo branco original.
