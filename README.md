@@ -70,3 +70,5 @@ Com o servidor em execução, `npm run test:visual` verifica 70 combinações de
 O componente compartilhado `Brand` usa o logotipo oficial recebido em `IMG_8255.JPG.zip`, preservado em `public/images/brand/promove-oficial.jpeg`. Cabeçalho, rodapé e introdução exibem a versão com fundo transparente em `public/images/brand/promove-transparente.png`. O JPEG original permanece preservado.
 
 Em fundos escuros, `Brand` aplica uma máscara CSS com o canal alfa original para exibir apenas o nome Promove em branco, preservando as cores do símbolo e a transparência.
+
+Dados institucionais atualizados pelo cliente: Ensino PROMOVE; Rua Tuiuti, 400, Tabajaras, Uberlândia – MG; (34) 99182-4677; Instagram @ensinopromove; Facebook Ensino Promove. O endereço anterior, seu CEP e o telefone secundário foram retirados dos contatos atuais. O Facebook aparece pelo nome informado, sem URL inventada; adicionar o link oficial quando disponível. Artes históricas do acervo permanecem intactas.
