@@ -31,3 +31,21 @@ footer{padding:65px var(--gutter) 28px;background:#061720;color:white}.footer-to
 @media(min-width:761px) and (max-width:1000px){.hero h1{font-size:clamp(40px,4.8vw,48px)}}
 
 .photo-label>svg{color:var(--yellow);flex-shrink:0}.footer-top a>svg{vertical-align:middle;margin-left:5px}
+/* Client records: complete artwork, original proportions and readable captions. */
+figure{margin:0}.official-logo{width:200px;height:auto;object-fit:contain}
+.about-editorial{display:grid;grid-template-columns:1.4fr 1fr;align-items:center;gap:16px;max-width:620px}
+.about-editorial figure{min-width:0;overflow:hidden;border-radius:8px;background:#e7eeeb;border:1px solid #102f3e20}
+.about-editorial figure:last-child{margin-top:110px}
+.about-editorial img{display:block;width:100%;height:auto;object-fit:contain}
+.about-editorial figcaption{padding:12px;font-size:11px;color:var(--blue)}
+.real-course-image{aspect-ratio:1; background:#e6ece9}.real-course-image img{object-fit:contain;padding:10px}.real-course-image:after,.real-course-image .image-index{display:none}.real-course-image .image-arrow{top:12px;right:12px}
+.real-detail-image img{height:auto;object-fit:contain}.real-detail-image>span{position:static;display:block;margin-top:8px;width:fit-content}
+.practice-photo.real-practice{aspect-ratio:1;margin:35px;min-width:0}.real-practice .practice-photo-caption{position:static;display:none}.real-practice>img{object-fit:contain!important;animation:none!important}
+.results{background:#e9eeec}.results-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}.results-grid figure{min-width:0;background:var(--white);border-radius:8px;overflow:hidden;border:1px solid #102f3e20}.results-grid img{display:block;width:100%;height:auto;object-fit:contain}.results-grid figcaption{padding:22px}.results-grid h3{font-size:21px;margin:0}.results-grid .eyebrow{display:block;font-size:9px;margin-bottom:12px}
+.gallery-count{font-size:13px;color:var(--muted)}.real-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1250px;align-items:start}.real-gallery .gallery-photo{width:100%;max-width:none;border-radius:8px}.gallery-art{position:relative;background:#e7eeeb;padding:10px}.real-gallery .gallery-photo img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;transform:none}.real-gallery .gallery-photo>span{gap:14px;line-height:1.5;min-height:82px}.gallery-photo svg{flex-shrink:0}.video-badge{position:absolute;left:20px;bottom:22px;padding:10px 15px;background:var(--yellow);color:var(--navy);border-radius:4px;font-size:12px;font-weight:600}.lightbox{border-radius:8px;padding:48px 16px 16px}.lightbox>img{width:auto;height:auto;max-width:100%;max-height:68svh}.lightbox video{max-height:68svh;background:#000}.close-lightbox{top:8px;right:8px}.lightbox-controls{gap:12px}.lightbox-controls button{min-width:44px;min-height:44px}.lightbox-controls p{overflow-wrap:anywhere}.lightbox-controls svg{pointer-events:none}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.results-grid img{transition:filter .3s}.results-grid a:hover img{filter:brightness(1.035)}.real-gallery .gallery-photo{transition:transform .25s,box-shadow .25s}.real-gallery .gallery-photo:hover{transform:translateY(-4px);box-shadow:0 12px 30px #07192315}}
+@media(prefers-reduced-motion:no-preference){.real-gallery{animation:slide .3s both}}
+@media(max-width:1000px){.real-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.practice-photo.real-practice{margin:25px}.about-editorial{gap:10px}.results-grid{gap:16px}.results-grid figcaption{padding:15px}}
+@media(max-width:760px){.about-editorial figure:last-child{margin-top:65px}.practice-photo.real-practice{margin:0 var(--gutter) 30px;aspect-ratio:1}.about-editorial{max-width:560px}.results-grid h3{font-size:19px}}
+@media(max-width:600px){.real-gallery,.results-grid{grid-template-columns:1fr}.real-gallery{max-width:420px}.results-grid{max-width:420px;margin:auto}.about-editorial{grid-template-columns:1.2fr 1fr}.about-editorial figcaption{font-size:10px;padding:10px}.real-gallery .gallery-photo>span{min-height:0}.real-course-image{aspect-ratio:1}}
+.real-course-image .image-arrow{display:none}

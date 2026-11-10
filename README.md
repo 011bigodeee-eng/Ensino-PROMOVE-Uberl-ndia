@@ -22,17 +22,22 @@ Rotas: `/`, `/sobre`, `/cursos`, `/cursos/[slug]`, `/treinamentos`, `/galeria`, 
 
 ## Edição
 
-- `lib/data.ts`: contatos, cursos, tópicos introdutórios, perguntas frequentes e acervo.
+- `lib/data.ts`: contatos, cursos, tópicos introdutórios e perguntas frequentes.
+- `lib/media.ts`: registros reais, categorias, dimensões e vídeos.
+- `docs/real-media-audit.md`: inventário dos 30 arquivos recebidos e destino de cada registro.
 - `components/sections.tsx`: conteúdo institucional e seções.
 - `components/ui.tsx`: catálogo, galeria, formulário, menu e introdução.
 - `app/globals.css`: identidade visual, responsividade e movimento reduzido.
-- `public/images`: referências fornecidas no ZIP. São tratadas como ilustrativas, sem afirmar que representam alunos ou instalações reais. A imagem de certificado demonstrativo não é exibida como credencial.
+- `public/images/registros`: artes reais fornecidas pelo cliente, convertidas em WebP sem recorte.
+- `public/videos`: os dois vídeos recebidos, sem autoplay.
+- `public/media/originais/promove-registros.zip`: arquivo original integral.
+- Demais imagens: referências ilustrativas mantidas e identificadas onde não há registro correspondente.
 
 ## Publicação na Vercel
 
 Importe este repositório como projeto Next.js. Configure `NEXT_PUBLIC_SITE_URL` com a origem HTTPS real, sem barra final, antes do build de produção. Essa variável habilita URLs absolutas de Open Graph e o sitemap com domínio real. Não foi inventado domínio de produção. Sem essa variável, o sitemap fica vazio.
 
-Antes da publicação comercial, confirme telefones (principal: 34 99182-4677), endereço, catálogo, disponibilidade, requisitos, carga horária, certificação, condições comerciais e direitos das imagens. Revise a política de privacidade com os dados do responsável. Depoimentos reais ainda não foram fornecidos. A categoria agrícola é uma proposta de capacitações a confirmar.
+Antes da publicação comercial, confirme telefones (principal: 34 99182-4677), endereço, catálogo, disponibilidade, requisitos, carga horária, certificação, condições comerciais e direitos das imagens. Revise a política de privacidade com os dados do responsável. A seção de resultados apresenta registros de capacitações, sem inventar depoimentos, avaliações ou estatísticas. Os cursos e as condições das próximas turmas continuam sujeitos à confirmação.
 
 ## Contatos e privacidade
 
@@ -44,7 +49,7 @@ A introdução usa `sessionStorage` para não se repetir na sessão e respeita `
 
 ## Limitações intencionais
 
-Sem vídeos fornecidos: galeria estática, sem player falso. Categorias sem registros mostram estado vazio explícito. Sem mapa incorporado até validação de localização; o link de busca/rota está disponível. Pré-requisitos, certificado e horários não confirmados são apresentados para consulta. Não há promessa de empregabilidade.
+A galeria apresenta 26 imagens e 2 vídeos reais, com filtros derivados do acervo disponível e player com controles. Dois materiais promocionais foram preservados apenas no ZIP para não divulgar inscrições antigas ou catálogo sem confirmação. As artes são mostradas integralmente; textos nelas presentes se referem ao registro histórico. A hero e a conversão mantêm as ilustrações identificadas por não haver fotografia panorâmica adequada entre as artes recebidas. Sem mapa incorporado até validação de localização; o link de busca/rota está disponível. Pré-requisitos, certificado e horários não confirmados são apresentados para consulta. Não há promessa de empregabilidade.
 
 ## Teste de navegador
 
@@ -58,6 +63,8 @@ Na Vercel, a origem de produção disponibilizada em `VERCEL_PROJECT_PRODUCTION_
 
 ## Reformulação visual
 
-Hero em duas colunas (45%/55%), treinamentos editoriais e CTA com fotografia independente do texto. As seções alternam fundos claros e azul petróleo. Os três destaques usam novas ilustrações geradas por IA em 1536 × 1024, identificadas na interface. Consulte `docs/image-audit.md` para dimensões, limites das referências e otimização.
+Hero em duas colunas (45%/55%), treinamentos editoriais e CTA com fotografia independente do texto. As seções alternam fundos claros e azul petróleo. Hero e conversão preservam as ilustrações identificadas; prática, Sobre, cursos correspondentes e resultados receberam registros reais. Consulte `docs/real-media-audit.md` para o uso atual e `docs/image-audit.md` para o histórico das referências.
 
 Com o servidor em execução, `npm run test:visual` verifica 70 combinações de rotas/larguras, a tipografia do Hero, os CTAs na primeira dobra de desktop, a ausência de sobreposição do header e a decodificação das imagens. Gera capturas de 1440 px e 390 px em `/tmp`. Use `CHROMIUM_PATH=/usr/bin/chromium` quando necessário. `npm run test:smoke` cobre a preservação das funcionalidades.
+
+O componente compartilhado `Brand` contém o ponto de configuração do futuro logotipo oficial, usado no cabeçalho, rodapé e introdução. A identidade atual permanece até o envio do arquivo azul oficial.
