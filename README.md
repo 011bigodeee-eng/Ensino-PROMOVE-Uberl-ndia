@@ -68,3 +68,5 @@ Hero em duas colunas (45%/55%), treinamentos editoriais e CTA com fotografia ind
 Com o servidor em execução, `npm run test:visual` verifica 70 combinações de rotas/larguras, a tipografia do Hero, os CTAs na primeira dobra de desktop, a ausência de sobreposição do header e a decodificação das imagens. Gera capturas de 1440 px e 390 px em `/tmp`. Use `CHROMIUM_PATH=/usr/bin/chromium` quando necessário. `npm run test:smoke` cobre a preservação das funcionalidades.
 
 O componente compartilhado `Brand` usa o logotipo oficial recebido em `IMG_8255.JPG.zip`, preservado em `public/images/brand/promove-oficial.jpeg`. Cabeçalho, rodapé e introdução exibem a versão com fundo transparente em `public/images/brand/promove-transparente.png`. O JPEG original permanece preservado.
+
+Em fundos escuros, `Brand` aplica uma máscara CSS com o canal alfa original para exibir apenas o nome Promove em branco, preservando as cores do símbolo e a transparência.

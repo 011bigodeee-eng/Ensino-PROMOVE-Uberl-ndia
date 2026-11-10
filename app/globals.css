@@ -57,3 +57,9 @@ figure{margin:0}.official-logo{width:200px;height:auto;object-fit:contain}
 .intro .official-logo{width:145px}
 @media(prefers-reduced-motion:no-preference){.intro .official-logo{animation:brandReveal 1.2s both}}
 @media(max-width:480px){.header .official-logo{width:44px}.intro .official-logo{width:120px}}
+
+/* Reuse the original alpha contours to give only the wordmark white contrast. */
+.official-logo{position:relative;width:64px}
+.official-logo>img{display:block;width:100%;height:auto}
+.official-wordmark{position:absolute;inset:0;background:#fff;pointer-events:none;mask:url('/images/brand/promove-transparente.png') center / 100% 100% no-repeat;clip-path:polygon(0 79%,18% 79%,18% 83.5%,100% 83.5%,100% 100%,0 100%)}
+@media(max-width:480px){.header .official-logo{width:56px}}
